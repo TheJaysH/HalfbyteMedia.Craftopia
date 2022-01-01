@@ -101,5 +101,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HalfbyteMedia.Craftopia.Core\HalfbyteMedia.Craftopia.Core.csproj">
+      <Project>{124804ab-5fa2-46db-9e29-89557ba129fb}</Project>
+      <Name>HalfbyteMedia.Craftopia.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
