@@ -35,9 +35,9 @@ namespace HalfbyteMedia.Craftopia.ModInstaller
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.listBox_Steps = new System.Windows.Forms.ListBox();
             this.splitContainer_Main = new System.Windows.Forms.SplitContainer();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.button_Cancel = new System.Windows.Forms.Button();
+            this.button_Next = new System.Windows.Forms.Button();
+            this.button_Back = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer_Header)).BeginInit();
             this.splitContainer_Header.Panel1.SuspendLayout();
@@ -113,7 +113,7 @@ namespace HalfbyteMedia.Craftopia.ModInstaller
             // listBox_Steps
             // 
             this.listBox_Steps.BackColor = System.Drawing.Color.White;
-            this.listBox_Steps.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.listBox_Steps.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.listBox_Steps.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listBox_Steps.FormattingEnabled = true;
             this.listBox_Steps.ItemHeight = 20;
@@ -142,41 +142,49 @@ namespace HalfbyteMedia.Craftopia.ModInstaller
             this.splitContainer_Main.SplitterDistance = 345;
             this.splitContainer_Main.TabIndex = 0;
             // 
-            // button1
+            // button_Cancel
             // 
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button1.Location = new System.Drawing.Point(580, 17);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 30);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Cancel";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button_Cancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_Cancel.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button_Cancel.Location = new System.Drawing.Point(580, 17);
+            this.button_Cancel.Name = "button_Cancel";
+            this.button_Cancel.Size = new System.Drawing.Size(75, 30);
+            this.button_Cancel.TabIndex = 0;
+            this.button_Cancel.Text = "Cancel";
+            this.button_Cancel.UseVisualStyleBackColor = true;
+            this.button_Cancel.Click += new System.EventHandler(this.button_Cancel_Click);
             // 
-            // button2
+            // button_Next
             // 
-            this.button2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button2.Location = new System.Drawing.Point(499, 17);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 30);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Next >";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button_Next.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_Next.Enabled = false;
+            this.button_Next.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button_Next.Location = new System.Drawing.Point(499, 17);
+            this.button_Next.Name = "button_Next";
+            this.button_Next.Size = new System.Drawing.Size(75, 30);
+            this.button_Next.TabIndex = 1;
+            this.button_Next.Text = "Next >";
+            this.button_Next.UseVisualStyleBackColor = true;
+            this.button_Next.Click += new System.EventHandler(this.button_Next_Click);
             // 
-            // button3
+            // button_Back
             // 
-            this.button3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button3.Location = new System.Drawing.Point(418, 17);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 30);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "< Back";
-            this.button3.UseVisualStyleBackColor = true;
+            this.button_Back.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_Back.Enabled = false;
+            this.button_Back.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button_Back.Location = new System.Drawing.Point(418, 17);
+            this.button_Back.Name = "button_Back";
+            this.button_Back.Size = new System.Drawing.Size(75, 30);
+            this.button_Back.TabIndex = 2;
+            this.button_Back.Text = "< Back";
+            this.button_Back.UseVisualStyleBackColor = true;
+            this.button_Back.Click += new System.EventHandler(this.button_Back_Click);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button3);
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Controls.Add(this.button_Back);
+            this.groupBox1.Controls.Add(this.button_Cancel);
+            this.groupBox1.Controls.Add(this.button_Next);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ScrollBar;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
@@ -225,9 +233,9 @@ namespace HalfbyteMedia.Craftopia.ModInstaller
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ListBox listBox_Steps;
         private System.Windows.Forms.SplitContainer splitContainer_Main;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button_Back;
+        private System.Windows.Forms.Button button_Next;
+        private System.Windows.Forms.Button button_Cancel;
         private System.Windows.Forms.GroupBox groupBox1;
     }
 }

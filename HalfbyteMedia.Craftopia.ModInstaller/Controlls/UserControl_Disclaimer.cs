@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HalfbyteMedia.Craftopia.ModInstaller.Controlls.ControlEventArgs;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,26 @@ namespace HalfbyteMedia.Craftopia.ModInstaller.Controlls
 {
     public partial class UserControl_Disclaimer : UserControl
     {
+        public delegate void DisclaimerEventHandler(object sender, DisclaimerEventArgs e);
+
+        public event DisclaimerEventHandler DisclaimerEvent;
+
         public UserControl_Disclaimer()
         {
             InitializeComponent();
         }
+
+        private void UserControl_Disclaimer_Load(object sender, EventArgs e)
+        {
+            richTextBox1.Rtf = Properties.Resources.EULA;
+            checkBox_DisclaimerAccepted.CheckedChanged += CheckBox1_CheckedChanged;
+        }
+
+        private void CheckBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            var checkbox = (CheckBox)sender;
+            DisclaimerEvent?.Invoke(this, new DisclaimerEventArgs(checkbox.Checked));
+        }
     }
+
 }
