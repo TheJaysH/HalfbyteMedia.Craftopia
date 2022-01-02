@@ -1,5 +1,5 @@
 ﻿
-namespace HalfbyteMedia.Craftopia.ModInstaller.Controlls
+namespace HalfbyteMedia.Craftopia.ModInstaller.Controlls.ReqiredFiles
 {
     partial class UserControl_RequiredFiles
     {
@@ -29,16 +29,10 @@ namespace HalfbyteMedia.Craftopia.ModInstaller.Controlls
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
-            "UWP Injector",
-            "Waiting to download"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
-            "Microsoft Visual C++ Redistributable ",
-            "Waiting to download"}, -1);
             this.label1 = new System.Windows.Forms.Label();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.button_Begin = new System.Windows.Forms.Button();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.listView_Files = new System.Windows.Forms.ListView();
             this.columnHeader_Application = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader_Status = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
@@ -58,10 +52,13 @@ namespace HalfbyteMedia.Craftopia.ModInstaller.Controlls
             // 
             this.progressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.progressBar1.Enabled = false;
             this.progressBar1.Location = new System.Drawing.Point(4, 57);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(631, 23);
+            this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
             this.progressBar1.TabIndex = 2;
+            this.progressBar1.Visible = false;
             // 
             // button_Begin
             // 
@@ -72,25 +69,23 @@ namespace HalfbyteMedia.Craftopia.ModInstaller.Controlls
             this.button_Begin.TabIndex = 3;
             this.button_Begin.Text = "Begin";
             this.button_Begin.UseVisualStyleBackColor = true;
+            this.button_Begin.Click += new System.EventHandler(this.button_Begin_Click);
             // 
-            // listView1
+            // listView_Files
             // 
-            this.listView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.listView_Files.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.listView_Files.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader_Application,
             this.columnHeader_Status});
-            this.listView1.HideSelection = false;
-            this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2});
-            this.listView1.Location = new System.Drawing.Point(4, 122);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(631, 193);
-            this.listView1.TabIndex = 4;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView_Files.HideSelection = false;
+            this.listView_Files.Location = new System.Drawing.Point(4, 122);
+            this.listView_Files.Name = "listView_Files";
+            this.listView_Files.Size = new System.Drawing.Size(631, 193);
+            this.listView_Files.TabIndex = 4;
+            this.listView_Files.UseCompatibleStateImageBehavior = false;
+            this.listView_Files.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader_Application
             // 
@@ -107,7 +102,7 @@ namespace HalfbyteMedia.Craftopia.ModInstaller.Controlls
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.listView_Files);
             this.Controls.Add(this.button_Begin);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.label1);
@@ -115,6 +110,7 @@ namespace HalfbyteMedia.Craftopia.ModInstaller.Controlls
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "UserControl_RequiredFiles";
             this.Size = new System.Drawing.Size(638, 318);
+            this.Load += new System.EventHandler(this.UserControl_RequiredFiles_Load);
             this.ResumeLayout(false);
 
         }
@@ -124,7 +120,7 @@ namespace HalfbyteMedia.Craftopia.ModInstaller.Controlls
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Button button_Begin;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView listView_Files;
         private System.Windows.Forms.ColumnHeader columnHeader_Application;
         private System.Windows.Forms.ColumnHeader columnHeader_Status;
     }

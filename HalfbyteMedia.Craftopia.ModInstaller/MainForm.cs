@@ -1,5 +1,8 @@
 ﻿using HalfbyteMedia.Craftopia.Core.Logging;
 using HalfbyteMedia.Craftopia.ModInstaller.Controlls;
+using HalfbyteMedia.Craftopia.ModInstaller.Controlls.Disclaimer;
+using HalfbyteMedia.Craftopia.ModInstaller.Controlls.ReqiredFiles;
+using HalfbyteMedia.Craftopia.ModInstaller.Controlls.Setup;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -47,7 +50,6 @@ namespace HalfbyteMedia.Craftopia.ModInstaller
 
             var requiredFiles = new UserControl_RequiredFiles();
             requiredFiles.Dock = DockStyle.Fill;
-
 
             UserControls.Add(ControlType.Disclaimer, disclaimer);
             UserControls.Add(ControlType.Setup, setup);
@@ -109,16 +111,16 @@ namespace HalfbyteMedia.Craftopia.ModInstaller
 
         }
 
-        private void Disclaimer_DisclaimerEvent(object sender, Controlls.ControlEventArgs.DisclaimerEventArgs e)
+        private void Disclaimer_DisclaimerEvent(object sender, DisclaimerEventArgs e)
         {
             button_Next.Enabled = e.EulaAccepted;
         }
 
         private void button_Cancel_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Are you sure you wish to quit?", "Quit", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+            if (MessageBox.Show("Any progress will be lost. Are you sure?", "Cancel", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
             {
-                Environment.Exit(0);
+                Application.Exit();
             }
         }
 

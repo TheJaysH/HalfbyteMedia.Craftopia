@@ -1,5 +1,5 @@
 ﻿
-namespace HalfbyteMedia.Craftopia.ModInstaller.Controlls
+namespace HalfbyteMedia.Craftopia.ModInstaller.Controlls.Disclaimer
 {
     partial class UserControl_Disclaimer
     {

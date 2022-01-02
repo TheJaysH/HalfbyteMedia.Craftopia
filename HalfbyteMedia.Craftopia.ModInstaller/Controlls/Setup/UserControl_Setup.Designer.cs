@@ -1,5 +1,5 @@
 ﻿
-namespace HalfbyteMedia.Craftopia.ModInstaller.Controlls
+namespace HalfbyteMedia.Craftopia.ModInstaller.Controlls.Setup
 {
     partial class UserControl_Setup
     {
@@ -74,6 +74,7 @@ namespace HalfbyteMedia.Craftopia.ModInstaller.Controlls
             this.button_Browse.TabIndex = 1;
             this.button_Browse.Text = "Browse";
             this.button_Browse.UseVisualStyleBackColor = true;
+            this.button_Browse.Click += new System.EventHandler(this.button_Browse_Click);
             // 
             // textBox_InstallDirectory
             // 

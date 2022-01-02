@@ -43,20 +43,14 @@ namespace HalfbyteMedia.Craftopia.ModInstaller.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://github.com/Wunkolo/UWPDumper/releases/download/6.9.2021/UWPDumper-x64.zip" +
-            "")]
-        public string UWP_DUMPER_URL {
+        [global::System.Configuration.DefaultSettingValueAttribute(@"<?xml version=""1.0"" encoding=""utf-16""?>
+<ArrayOfString xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
+  <string>UWP Dumper|d|https://github.com/Wunkolo/UWPDumper/releases/download/6.9.2021/UWPDumper-x64.zip</string>
+  <string>Microsoft Visual C++ Redistributable|i|https://aka.ms/vs/17/release/vc_redist.x64.exe</string>
+</ArrayOfString>")]
+        public global::System.Collections.Specialized.StringCollection FILE_DOWNLOADS {
             get {
-                return ((string)(this["UWP_DUMPER_URL"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://aka.ms/vs/17/release/vc_redist.x64.exe")]
-        public string REDIST_URL {
-            get {
-                return ((string)(this["REDIST_URL"]));
+                return ((global::System.Collections.Specialized.StringCollection)(this["FILE_DOWNLOADS"]));
             }
         }
     }

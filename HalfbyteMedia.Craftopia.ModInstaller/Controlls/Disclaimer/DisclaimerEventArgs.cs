@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HalfbyteMedia.Craftopia.ModInstaller.Controlls.ControlEventArgs
+namespace HalfbyteMedia.Craftopia.ModInstaller.Controlls.Disclaimer
 {
     public class DisclaimerEventArgs
     {

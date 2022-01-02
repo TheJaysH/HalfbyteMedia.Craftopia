@@ -1,5 +1,4 @@
-﻿using HalfbyteMedia.Craftopia.ModInstaller.Controlls.ControlEventArgs;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace HalfbyteMedia.Craftopia.ModInstaller.Controlls
+namespace HalfbyteMedia.Craftopia.ModInstaller.Controlls.Disclaimer
 {
     public partial class UserControl_Disclaimer : UserControl
     {

@@ -12,6 +12,7 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -32,6 +33,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Craftopia-lg.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -47,23 +51,26 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controlls\ControlType.cs" />
-    <Compile Include="Controlls\ControlEventArgs\DisclaimerEventArgs.cs" />
-    <Compile Include="Controlls\UserControl_Disclaimer.cs">
+    <Compile Include="Controlls\Disclaimer\DisclaimerEventArgs.cs" />
+    <Compile Include="Controlls\RequiredFiles\FileFinsihedEventArgs.cs" />
+    <Compile Include="Controlls\RequiredFiles\FileMeta.cs" />
+    <Compile Include="Controlls\RequiredFiles\FileStatus.cs" />
+    <Compile Include="Controlls\Disclaimer\UserControl_Disclaimer.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controlls\UserControl_Disclaimer.Designer.cs">
+    <Compile Include="Controlls\Disclaimer\UserControl_Disclaimer.Designer.cs">
       <DependentUpon>UserControl_Disclaimer.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controlls\UserControl_RequiredFiles.cs">
+    <Compile Include="Controlls\RequiredFiles\UserControl_RequiredFiles.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controlls\UserControl_RequiredFiles.Designer.cs">
+    <Compile Include="Controlls\RequiredFiles\UserControl_RequiredFiles.Designer.cs">
       <DependentUpon>UserControl_RequiredFiles.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controlls\UserControl_Setup.cs">
+    <Compile Include="Controlls\Setup\UserControl_Setup.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controlls\UserControl_Setup.Designer.cs">
+    <Compile Include="Controlls\Setup\UserControl_Setup.Designer.cs">
       <DependentUpon>UserControl_Setup.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
@@ -74,13 +81,13 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Controlls\UserControl_Disclaimer.resx">
+    <EmbeddedResource Include="Controlls\Disclaimer\UserControl_Disclaimer.resx">
       <DependentUpon>UserControl_Disclaimer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controlls\UserControl_RequiredFiles.resx">
+    <EmbeddedResource Include="Controlls\RequiredFiles\UserControl_RequiredFiles.resx">
       <DependentUpon>UserControl_RequiredFiles.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controlls\UserControl_Setup.resx">
+    <EmbeddedResource Include="Controlls\Setup\UserControl_Setup.resx">
       <DependentUpon>UserControl_Setup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
@@ -115,6 +122,9 @@
       <Project>{124804ab-5fa2-46db-9e29-89557ba129fb}</Project>
       <Name>HalfbyteMedia.Craftopia.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Craftopia-lg.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

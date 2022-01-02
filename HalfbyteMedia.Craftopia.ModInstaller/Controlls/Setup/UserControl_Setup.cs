@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace HalfbyteMedia.Craftopia.ModInstaller.Controlls
+namespace HalfbyteMedia.Craftopia.ModInstaller.Controlls.Setup
 {
     public partial class UserControl_Setup : UserControl
     {
@@ -20,6 +20,11 @@ namespace HalfbyteMedia.Craftopia.ModInstaller.Controlls
         private void UserControl_Setup_Load(object sender, EventArgs e)
         {
             textBox_InstallDirectory.Text = Properties.Settings.Default.DEFAULT_INSTALL_DIRECTORY;
+        }
+
+        private void button_Browse_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
