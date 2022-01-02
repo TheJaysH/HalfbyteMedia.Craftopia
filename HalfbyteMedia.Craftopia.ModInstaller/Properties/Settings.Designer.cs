@@ -31,5 +31,33 @@ namespace HalfbyteMedia.Craftopia.ModInstaller.Properties {
                 return ((string)(this["DEFAULT_INSTALL_DIRECTORY"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute(".")]
+        public string LOG_PATH {
+            get {
+                return ((string)(this["LOG_PATH"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://github.com/Wunkolo/UWPDumper/releases/download/6.9.2021/UWPDumper-x64.zip" +
+            "")]
+        public string UWP_DUMPER_URL {
+            get {
+                return ((string)(this["UWP_DUMPER_URL"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://aka.ms/vs/17/release/vc_redist.x64.exe")]
+        public string REDIST_URL {
+            get {
+                return ((string)(this["REDIST_URL"]));
+            }
+        }
     }
 }

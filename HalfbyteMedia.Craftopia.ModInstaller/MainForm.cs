@@ -1,4 +1,5 @@
-﻿using HalfbyteMedia.Craftopia.ModInstaller.Controlls;
+﻿using HalfbyteMedia.Craftopia.Core.Logging;
+using HalfbyteMedia.Craftopia.ModInstaller.Controlls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,33 +14,44 @@ namespace HalfbyteMedia.Craftopia.ModInstaller
 {
     public partial class MainForm : Form
     {
-        private int CurrentIndex { get; set; } = 0;
-        private Dictionary<ControlType,UserControl> UserControls { get; set; }
+        private int CurrentIndex { get; set; }
+        private Dictionary<ControlType, UserControl> UserControls { get; set; }
+        public Logger Logger { get; set; }
+
+        public static MainForm Instance { get; private set; }
 
         public MainForm()
         {
+            InitializeLogger();
             InitializeComponent();
             InitializeControls();
+
+            Instance = this;
+        }
+
+        private void InitializeLogger()
+        {
+            Logger = new Logger(Properties.Settings.Default.LOG_PATH);
         }
 
         private void InitializeControls()
         {
             UserControls = new Dictionary<ControlType, UserControl>();
 
-            var disclaimer = new UserControl_Disclaimer()
-            {
-                Dock = DockStyle.Fill
-            };
+            var disclaimer = new UserControl_Disclaimer();
+            disclaimer.Dock = DockStyle.Fill;
             disclaimer.DisclaimerEvent += Disclaimer_DisclaimerEvent;
 
-            var setup = new UserControl_Setup()
-            {
-                Dock = DockStyle.Fill
-            };
+            var setup = new UserControl_Setup();
+            setup.Dock = DockStyle.Fill;
 
-            
+            var requiredFiles = new UserControl_RequiredFiles();
+            requiredFiles.Dock = DockStyle.Fill;
+
+
             UserControls.Add(ControlType.Disclaimer, disclaimer);
             UserControls.Add(ControlType.Setup, setup);
+            UserControls.Add(ControlType.RequiredFiles, requiredFiles);
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -77,8 +89,8 @@ namespace HalfbyteMedia.Craftopia.ModInstaller
                         button_Next.Enabled = false;
                         break;
                     case ControlType.Setup:
-                        //button_Back.Enabled = true;
-                        //button_Next.Enabled = false;
+                        button_Back.Enabled = false;
+                        button_Next.Enabled = true;
                         break;
                     case ControlType.RequiredFiles:
                         button_Back.Enabled = true;

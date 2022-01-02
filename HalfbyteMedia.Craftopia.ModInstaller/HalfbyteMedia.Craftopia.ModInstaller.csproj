@@ -54,6 +54,12 @@
     <Compile Include="Controlls\UserControl_Disclaimer.Designer.cs">
       <DependentUpon>UserControl_Disclaimer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controlls\UserControl_RequiredFiles.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controlls\UserControl_RequiredFiles.Designer.cs">
+      <DependentUpon>UserControl_RequiredFiles.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controlls\UserControl_Setup.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -70,6 +76,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Controlls\UserControl_Disclaimer.resx">
       <DependentUpon>UserControl_Disclaimer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controlls\UserControl_RequiredFiles.resx">
+      <DependentUpon>UserControl_RequiredFiles.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controlls\UserControl_Setup.resx">
       <DependentUpon>UserControl_Setup.cs</DependentUpon>

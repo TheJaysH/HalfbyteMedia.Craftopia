@@ -31,8 +31,8 @@ namespace HalfbyteMedia.Craftopia.ModInstaller.Controlls
         {
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox_InstallDirectory = new System.Windows.Forms.TextBox();
             this.button_Browse = new System.Windows.Forms.Button();
+            this.textBox_InstallDirectory = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -42,7 +42,7 @@ namespace HalfbyteMedia.Craftopia.ModInstaller.Controlls
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
             this.label1.Padding = new System.Windows.Forms.Padding(0, 16, 0, 0);
-            this.label1.Size = new System.Drawing.Size(525, 141);
+            this.label1.Size = new System.Drawing.Size(525, 95);
             this.label1.TabIndex = 0;
             this.label1.Text = "Setup will install the modded instance of Craftopia® in the following folder. To " +
     "install in a different folder, click Browse and select another folder. Click Nex" +
@@ -50,38 +50,39 @@ namespace HalfbyteMedia.Craftopia.ModInstaller.Controlls
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.button_Browse);
             this.groupBox1.Controls.Add(this.textBox_InstallDirectory);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.groupBox1.Location = new System.Drawing.Point(0, 141);
+            this.groupBox1.Location = new System.Drawing.Point(4, 167);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(16, 3, 16, 16);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(16, 3, 16, 16);
-            this.groupBox1.Size = new System.Drawing.Size(525, 109);
+            this.groupBox1.Size = new System.Drawing.Size(517, 93);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Destination Folder";
-            // 
-            // textBox_InstallDirectory
-            // 
-            this.textBox_InstallDirectory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox_InstallDirectory.Location = new System.Drawing.Point(15, 46);
-            this.textBox_InstallDirectory.Name = "textBox_InstallDirectory";
-            this.textBox_InstallDirectory.Size = new System.Drawing.Size(394, 27);
-            this.textBox_InstallDirectory.TabIndex = 0;
             // 
             // button_Browse
             // 
             this.button_Browse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button_Browse.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.button_Browse.Location = new System.Drawing.Point(415, 44);
+            this.button_Browse.Location = new System.Drawing.Point(407, 33);
             this.button_Browse.Name = "button_Browse";
             this.button_Browse.Size = new System.Drawing.Size(91, 30);
             this.button_Browse.TabIndex = 1;
             this.button_Browse.Text = "Browse";
             this.button_Browse.UseVisualStyleBackColor = true;
+            // 
+            // textBox_InstallDirectory
+            // 
+            this.textBox_InstallDirectory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_InstallDirectory.Location = new System.Drawing.Point(19, 35);
+            this.textBox_InstallDirectory.Name = "textBox_InstallDirectory";
+            this.textBox_InstallDirectory.Size = new System.Drawing.Size(382, 27);
+            this.textBox_InstallDirectory.TabIndex = 0;
             // 
             // UserControl_Setup
             // 

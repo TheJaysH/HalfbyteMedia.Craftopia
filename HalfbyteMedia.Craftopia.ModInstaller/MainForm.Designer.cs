@@ -39,6 +39,9 @@ namespace HalfbyteMedia.Craftopia.ModInstaller
             this.button_Next = new System.Windows.Forms.Button();
             this.button_Back = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer_Header)).BeginInit();
             this.splitContainer_Header.Panel1.SuspendLayout();
             this.splitContainer_Header.Panel2.SuspendLayout();
@@ -88,6 +91,7 @@ namespace HalfbyteMedia.Craftopia.ModInstaller
             // splitContainer_Body.Panel1
             // 
             this.splitContainer_Body.Panel1.Controls.Add(this.listBox_Steps);
+            this.splitContainer_Body.Panel1.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
             // 
             // splitContainer_Body.Panel2
             // 
@@ -121,10 +125,10 @@ namespace HalfbyteMedia.Craftopia.ModInstaller
             "Disclaimer",
             "Setup",
             "Required Files"});
-            this.listBox_Steps.Location = new System.Drawing.Point(0, 0);
-            this.listBox_Steps.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.listBox_Steps.Location = new System.Drawing.Point(4, 0);
+            this.listBox_Steps.Margin = new System.Windows.Forms.Padding(16, 4, 3, 4);
             this.listBox_Steps.Name = "listBox_Steps";
-            this.listBox_Steps.Size = new System.Drawing.Size(184, 418);
+            this.listBox_Steps.Size = new System.Drawing.Size(180, 418);
             this.listBox_Steps.TabIndex = 0;
             // 
             // splitContainer_Main
@@ -182,6 +186,9 @@ namespace HalfbyteMedia.Craftopia.ModInstaller
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.panel3);
+            this.groupBox1.Controls.Add(this.panel2);
+            this.groupBox1.Controls.Add(this.panel1);
             this.groupBox1.Controls.Add(this.button_Back);
             this.groupBox1.Controls.Add(this.button_Cancel);
             this.groupBox1.Controls.Add(this.button_Next);
@@ -193,6 +200,27 @@ namespace HalfbyteMedia.Craftopia.ModInstaller
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "HalfbyteMedia.com";
+            // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(-8, 9);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(10, 46);
+            this.panel1.TabIndex = 3;
+            // 
+            // panel2
+            // 
+            this.panel2.Location = new System.Drawing.Point(3, 47);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(663, 10);
+            this.panel2.TabIndex = 4;
+            // 
+            // panel3
+            // 
+            this.panel3.Location = new System.Drawing.Point(660, 3);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(10, 46);
+            this.panel3.TabIndex = 5;
             // 
             // MainForm
             // 
@@ -237,6 +265,9 @@ namespace HalfbyteMedia.Craftopia.ModInstaller
         private System.Windows.Forms.Button button_Next;
         private System.Windows.Forms.Button button_Cancel;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 
