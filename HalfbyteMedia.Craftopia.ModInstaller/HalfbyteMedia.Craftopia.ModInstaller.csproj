@@ -81,6 +81,7 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="ProcessPrivileges">
       <HintPath>..\..\..\..\Downloads\ProcessPrivileges.dll</HintPath>
@@ -119,11 +120,11 @@
     <Compile Include="Controlls\RequiredFiles\UserControl_RequiredFiles.Designer.cs">
       <DependentUpon>UserControl_RequiredFiles.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controlls\SetPermissions\UserControl_SetPermissions.cs">
+    <Compile Include="Controlls\ModCraftopia\UserControl_ModCraftopia.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controlls\SetPermissions\UserControl_SetPermissions.Designer.cs">
-      <DependentUpon>UserControl_SetPermissions.cs</DependentUpon>
+    <Compile Include="Controlls\ModCraftopia\UserControl_ModCraftopia.Designer.cs">
+      <DependentUpon>UserControl_ModCraftopia.cs</DependentUpon>
     </Compile>
     <Compile Include="Controlls\Setup\UserControl_Setup.cs">
       <SubType>UserControl</SubType>
@@ -140,14 +141,17 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controlls\Setup\SetupEventArgs.cs" />
+    <EmbeddedResource Include="Controlls\BaseControl.resx">
+      <DependentUpon>BaseControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controlls\Disclaimer\UserControl_Disclaimer.resx">
       <DependentUpon>UserControl_Disclaimer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controlls\RequiredFiles\UserControl_RequiredFiles.resx">
       <DependentUpon>UserControl_RequiredFiles.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controlls\SetPermissions\UserControl_SetPermissions.resx">
-      <DependentUpon>UserControl_SetPermissions.cs</DependentUpon>
+    <EmbeddedResource Include="Controlls\ModCraftopia\UserControl_ModCraftopia.resx">
+      <DependentUpon>UserControl_ModCraftopia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controlls\Setup\UserControl_Setup.resx">
       <DependentUpon>UserControl_Setup.cs</DependentUpon>

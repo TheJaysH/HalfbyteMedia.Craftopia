@@ -16,9 +16,7 @@ using System.Windows.Forms;
 namespace HalfbyteMedia.Craftopia.ModInstaller.Controlls.ReqiredFiles
 {
     public partial class UserControl_RequiredFiles : BaseControl, IControlValid<BaseEventArgs>
-    {
-
-       
+    {       
         public event ControlValidEventHandler<BaseEventArgs> OnControlValid;
 
         public List<FileMeta> Files { get; private set; } = new();
@@ -123,14 +121,6 @@ namespace HalfbyteMedia.Craftopia.ModInstaller.Controlls.ReqiredFiles
                     
                     try
                     {
-
-                        
-
-                        //if (File.Exists(meta.FileName))
-                        //    File.Delete(meta.FileName);
-
-                        
-
                         meta.FileStatus = FileStatus.DOWNLOADING;
 
                         SetRowStatus(row, meta.FileStatus.GetStatusString());

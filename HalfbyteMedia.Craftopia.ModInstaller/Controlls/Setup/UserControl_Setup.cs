@@ -20,11 +20,13 @@ namespace HalfbyteMedia.Craftopia.ModInstaller.Controlls.Setup
 
         public UserControl_Setup()
         {
-            InitializeComponent();
 
+            InitializeComponent();
+            Load += UserControl_Setup_Load1;
             textBox_InstallDirectory.TextChanged += TextBox_InstallDirectory_TextChanged;
 
-            Load += UserControl_Setup_Load1;
+            ValidatePath();
+
         }
 
         private void UserControl_Setup_Load1(object sender, EventArgs e)

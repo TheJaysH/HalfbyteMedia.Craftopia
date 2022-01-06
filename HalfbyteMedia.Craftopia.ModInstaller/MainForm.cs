@@ -1,8 +1,9 @@
 ﻿using HalfbyteMedia.Craftopia.Core.Logging;
+using HalfbyteMedia.Craftopia.Core.Utilities;
 using HalfbyteMedia.Craftopia.ModInstaller.Controlls;
 using HalfbyteMedia.Craftopia.ModInstaller.Controlls.Disclaimer;
 using HalfbyteMedia.Craftopia.ModInstaller.Controlls.ReqiredFiles;
-using HalfbyteMedia.Craftopia.ModInstaller.Controlls.SetPermissions;
+using HalfbyteMedia.Craftopia.ModInstaller.Controlls.ModCraftopia;
 using HalfbyteMedia.Craftopia.ModInstaller.Controlls.Setup;
 using System;
 using System.Collections.Generic;
@@ -55,7 +56,7 @@ namespace HalfbyteMedia.Craftopia.ModInstaller
             var disclaimer = new UserControl_Disclaimer();
             var setup = new UserControl_Setup();
             var requiredFiles = new UserControl_RequiredFiles();
-            var setPermissions = new UserControl_SetPermissions();
+            var modCraftopia = new UserControl_ModCraftopia();
             
             disclaimer.OnControlValid += Disclaimer_OnControlValid;
             setup.OnControlValid += Setup_OnControlValid;
@@ -64,14 +65,14 @@ namespace HalfbyteMedia.Craftopia.ModInstaller
             UserControls.Add(ControlType.Disclaimer, disclaimer);
             UserControls.Add(ControlType.Setup, setup);
             UserControls.Add(ControlType.RequiredFiles, requiredFiles);
-            UserControls.Add(ControlType.SetPermissions, setPermissions);
+            UserControls.Add(ControlType.ModCraftopia, modCraftopia);
 
             splitContainer_Main.Panel1.ControlAdded += Panel1_ControlAdded;
         }
 
         private void Panel1_ControlAdded(object sender, ControlEventArgs e)
         {
-            button_Next.Enabled = true;
+            //button_Next.Enabled = false;
 
             var control = sender;
             var userControl = UserControls.Values.Where(c => c.Equals(control)).FirstOrDefault();
@@ -94,8 +95,7 @@ namespace HalfbyteMedia.Craftopia.ModInstaller
 
         private void Setup_OnControlValid(object sender, SetupEventArgs e)
         {
-            button_Next.Enabled = e.ControlValid;
-            e.DirectoryInfo.Create();
+            button_Next.Enabled = e.ControlValid;           
             InstallPath = e.DirectoryInfo.FullName;
         }
 
@@ -132,27 +132,27 @@ namespace HalfbyteMedia.Craftopia.ModInstaller
                 splitContainer_Main.Panel1.Controls.Clear();
                 splitContainer_Main.Panel1.Controls.Add(UserControls[controlType]);
 
-                //switch (controlType)
-                //{
-                //    case ControlType.Disclaimer:
-                //        button_Back.Enabled = false;
-                //        button_Next.Enabled = false;
-                //        break;
-                //    case ControlType.Setup:
-                //        button_Back.Enabled = false;
-                //        button_Next.Enabled = true;
-                //        break;
-                //    case ControlType.RequiredFiles:
-                //        button_Back.Enabled = true;
-                //        button_Next.Enabled = true;
-                //        break;
-                //    case ControlType.SetPermissions:
-                //        button_Back.Enabled = false;
-                //        button_Next.Enabled = false;
-                //        break;
-                //    default:
-                //        break;
-                //}
+                switch (controlType)
+                {
+                    case ControlType.Disclaimer:
+                        button_Back.Enabled = false;
+                        button_Next.Enabled = false;
+                        break;
+                    case ControlType.Setup:
+                        button_Back.Enabled = false;
+                        button_Next.Enabled = true;
+                        break;
+                    case ControlType.RequiredFiles:
+                        button_Back.Enabled = false;
+                        button_Next.Enabled = false;
+                        break;
+                    case ControlType.ModCraftopia:
+                        button_Back.Enabled = false;
+                        button_Next.Enabled = false;
+                        break;
+                    default:
+                        break;
+                }
 
                 splitContainer_Main.Panel1.Select();
             }

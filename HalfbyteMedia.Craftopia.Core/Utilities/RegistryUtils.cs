@@ -12,16 +12,20 @@ namespace HalfbyteMedia.Craftopia.Core.Utilities
     {
         public static void SetDeveloperMode(bool enabaled = true)
         {
-            string path = @"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\AppModelUnlock";
+            string path = @"SOFTWARE\Microsoft\Windows\CurrentVersion\AppModelUnlock";
             using RegistryKey appModelUnlock = Registry.LocalMachine.OpenSubKey(path);
             appModelUnlock.SetValue("AllowDevelopmentWithoutDevLicense", enabaled ? 1 : 0, RegistryValueKind.DWord);
         }
 
         public static bool GetDeveloperMode()
         {
-            string path = @"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\AppModelUnlock";
+            string path = @"SOFTWARE\Microsoft\Windows\CurrentVersion\AppModelUnlock";
             using RegistryKey appModelUnlock = Registry.LocalMachine.OpenSubKey(path);
-            return (string)appModelUnlock.GetValue("AllowDevelopmentWithoutDevLicense") == "1";
+
+            if (appModelUnlock == null)
+                return false;
+
+            return (int)appModelUnlock.GetValue("AllowDevelopmentWithoutDevLicense") == 1;
         }
 
         public static bool IsVCInstalled(int version = 2015)

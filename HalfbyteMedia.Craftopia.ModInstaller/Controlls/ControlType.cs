@@ -17,7 +17,7 @@ namespace HalfbyteMedia.Craftopia.ModInstaller.Controlls
         RequiredFiles = 2,
 
         [Description("Set Craftopia Permissions")]
-        SetPermissions = 3,
+        ModCraftopia = 3,
     }
 
     public static class ControlTypeExtensions

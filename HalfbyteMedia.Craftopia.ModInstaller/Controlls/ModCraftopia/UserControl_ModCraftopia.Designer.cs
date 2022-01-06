@@ -1,7 +1,7 @@
 ﻿
-namespace HalfbyteMedia.Craftopia.ModInstaller.Controlls.SetPermissions
+namespace HalfbyteMedia.Craftopia.ModInstaller.Controlls.ModCraftopia
 {
-    partial class UserControl_SetPermissions
+    partial class UserControl_ModCraftopia
     {
         /// <summary> 
         /// Required designer variable.
@@ -62,12 +62,13 @@ namespace HalfbyteMedia.Craftopia.ModInstaller.Controlls.SetPermissions
             this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(4, 137);
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(4, 107);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1239, 524);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1239, 554);
             this.flowLayoutPanel1.TabIndex = 7;
             // 
-            // UserControl_SetPermissions
+            // UserControl_ModCraftopia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -76,7 +77,7 @@ namespace HalfbyteMedia.Craftopia.ModInstaller.Controlls.SetPermissions
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Name = "UserControl_SetPermissions";
+            this.Name = "UserControl_ModCraftopia";
             this.Size = new System.Drawing.Size(1246, 664);
             this.ResumeLayout(false);
 

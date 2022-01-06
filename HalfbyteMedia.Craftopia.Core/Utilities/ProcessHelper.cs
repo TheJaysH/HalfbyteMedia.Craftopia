@@ -24,7 +24,7 @@ namespace HalfbyteMedia.Craftopia.Core.Utilities
                     //UserName = Environment.UserName,
                     //Domain = Environment.UserDomainName,
                     UseShellExecute = false,
-                    //CreateNoWindow = true,
+                    CreateNoWindow = true,
                     RedirectStandardInput = redirect,
                     RedirectStandardError = redirect,
                     RedirectStandardOutput = redirect,

@@ -58,15 +58,26 @@ namespace HalfbyteMedia.Craftopia.Core.Components.TaskItem
             InitializeTaskItem(taskText, task);
         }
 
+        public TaskItem(string taskText)
+        {
+            InitializeComponent();
+            InitializeTaskItem(taskText, null);
+        }
+
 
         private void InitializeTaskItem(string taskText, Func<T> task)
         {
             SetStatusIcon(TaskStatus.PENDING);
             SetTaskText(taskText);
+            InitializeAction(task);
+        }
+
+        public void InitializeAction(Func<T> task)
+        {
             Action = task;
         }
 
-        private void SetTaskText(string taskText)
+        public void SetTaskText(string taskText)
         {
             if (label_TaskText.InvokeRequired)
                 label_TaskText.Invoke(new MethodInvoker(() =>
