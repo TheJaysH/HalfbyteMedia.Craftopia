@@ -12,6 +12,7 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -32,9 +33,62 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Craftopia-lg.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>latest</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>latest</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>latest</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>latest</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="ProcessPrivileges">
+      <HintPath>..\..\..\..\Downloads\ProcessPrivileges.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,18 +100,36 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controlls\ControlType.cs" />
-    <Compile Include="Controlls\ControlEventArgs\DisclaimerEventArgs.cs" />
-    <Compile Include="Controlls\UserControl_Disclaimer.cs">
+    <Compile Include="Controlls\BaseControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controlls\UserControl_Disclaimer.Designer.cs">
+    <Compile Include="Controlls\BaseEventArgs.cs" />
+    <Compile Include="Controlls\ControlType.cs" />
+    <Compile Include="Controlls\IControlValid.cs" />
+    <Compile Include="Controlls\RequiredFiles\FileMeta.cs" />
+    <Compile Include="Controlls\RequiredFiles\FileStatus.cs" />
+    <Compile Include="Controlls\Disclaimer\UserControl_Disclaimer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controlls\Disclaimer\UserControl_Disclaimer.Designer.cs">
       <DependentUpon>UserControl_Disclaimer.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controlls\UserControl_Setup.cs">
+    <Compile Include="Controlls\RequiredFiles\UserControl_RequiredFiles.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controlls\UserControl_Setup.Designer.cs">
+    <Compile Include="Controlls\RequiredFiles\UserControl_RequiredFiles.Designer.cs">
+      <DependentUpon>UserControl_RequiredFiles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controlls\ModCraftopia\UserControl_ModCraftopia.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controlls\ModCraftopia\UserControl_ModCraftopia.Designer.cs">
+      <DependentUpon>UserControl_ModCraftopia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controlls\Setup\UserControl_Setup.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controlls\Setup\UserControl_Setup.Designer.cs">
       <DependentUpon>UserControl_Setup.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
@@ -68,10 +140,20 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Controlls\UserControl_Disclaimer.resx">
+    <Compile Include="Controlls\Setup\SetupEventArgs.cs" />
+    <EmbeddedResource Include="Controlls\BaseControl.resx">
+      <DependentUpon>BaseControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controlls\Disclaimer\UserControl_Disclaimer.resx">
       <DependentUpon>UserControl_Disclaimer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controlls\UserControl_Setup.resx">
+    <EmbeddedResource Include="Controlls\RequiredFiles\UserControl_RequiredFiles.resx">
+      <DependentUpon>UserControl_RequiredFiles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controlls\ModCraftopia\UserControl_ModCraftopia.resx">
+      <DependentUpon>UserControl_ModCraftopia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controlls\Setup\UserControl_Setup.resx">
       <DependentUpon>UserControl_Setup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
@@ -87,6 +169,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -106,6 +189,9 @@
       <Project>{124804ab-5fa2-46db-9e29-89557ba129fb}</Project>
       <Name>HalfbyteMedia.Craftopia.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Craftopia-lg.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -16,6 +16,13 @@ namespace HalfbyteMedia.Craftopia.ModInstaller
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            if (!Environment.Is64BitOperatingSystem)
+            {
+                MessageBox.Show("Craftopia Mod Installer does not yet work on 32-Bit operating systems.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Environment.Exit(1);
+            }
+
             Application.Run(new MainForm());
         }
     }

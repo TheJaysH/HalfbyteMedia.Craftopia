@@ -3,7 +3,21 @@
   <Profiles />
   <Settings>
     <Setting Name="DEFAULT_INSTALL_DIRECTORY" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">C:\Program Files\PocketPair\Craftopia</Value>
+      <Value Profile="(Default)">C:\Craftopia</Value>
+    </Setting>
+    <Setting Name="LOG_PATH" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">.</Value>
+    </Setting>
+    <Setting Name="FILE_DOWNLOADS" Type="System.Collections.Specialized.StringCollection" Scope="Application">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;UWP Dumper|d|https://github.com/Wunkolo/UWPDumper/releases/download/6.9.2021/UWPDumper-x64.zip&lt;/string&gt;
+  &lt;string&gt;BepInEx|d|https://github.com/BepInEx/BepInEx/releases/download/v5.4.18/BepInEx_x64_5.4.18.0.zip&lt;/string&gt;
+  &lt;string&gt;Microsoft Visual C++ Redistributable|i|https://aka.ms/vs/17/release/vc_redist.x64.exe&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
+    <Setting Name="RUN_CRAFTOPIA" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">shell:appsFolder\PocketpairInc.Craftopia_ad4psfrxyesvt!Game</Value>
     </Setting>
   </Settings>
 </SettingsFile>
