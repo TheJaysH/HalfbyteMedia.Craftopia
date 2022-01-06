@@ -121,10 +121,6 @@ namespace HalfbyteMedia.Craftopia.ModInstaller
             this.listBox_Steps.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listBox_Steps.FormattingEnabled = true;
             this.listBox_Steps.ItemHeight = 20;
-            this.listBox_Steps.Items.AddRange(new object[] {
-            "Disclaimer",
-            "Setup",
-            "Required Files"});
             this.listBox_Steps.Location = new System.Drawing.Point(4, 0);
             this.listBox_Steps.Margin = new System.Windows.Forms.Padding(16, 4, 3, 4);
             this.listBox_Steps.Name = "listBox_Steps";
@@ -135,6 +131,7 @@ namespace HalfbyteMedia.Craftopia.ModInstaller
             // 
             this.splitContainer_Main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer_Main.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
+            this.splitContainer_Main.IsSplitterFixed = true;
             this.splitContainer_Main.Location = new System.Drawing.Point(0, 0);
             this.splitContainer_Main.Name = "splitContainer_Main";
             this.splitContainer_Main.Orientation = System.Windows.Forms.Orientation.Horizontal;
@@ -195,6 +192,7 @@ namespace HalfbyteMedia.Craftopia.ModInstaller
             this.button_Back.TabIndex = 2;
             this.button_Back.Text = "< Back";
             this.button_Back.UseVisualStyleBackColor = true;
+            this.button_Back.Visible = false;
             this.button_Back.Click += new System.EventHandler(this.button_Back_Click);
             // 
             // button_Cancel
@@ -236,6 +234,7 @@ namespace HalfbyteMedia.Craftopia.ModInstaller
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Craftopia | Mod Installer";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.splitContainer_Header.Panel1.ResumeLayout(false);

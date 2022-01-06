@@ -10,16 +10,16 @@ using System.Windows.Forms;
 
 namespace HalfbyteMedia.Craftopia.ModInstaller.Controlls.Disclaimer
 {
-    public partial class UserControl_Disclaimer : UserControl
-    {
-        public delegate void DisclaimerEventHandler(object sender, DisclaimerEventArgs e);
-
-        public event DisclaimerEventHandler DisclaimerEvent;
+    public partial class UserControl_Disclaimer : BaseControl, IControlValid<BaseEventArgs>
+    {        
+        public event ControlValidEventHandler<BaseEventArgs> OnControlValid;
 
         public UserControl_Disclaimer()
         {
             InitializeComponent();
         }
+
+        
 
         private void UserControl_Disclaimer_Load(object sender, EventArgs e)
         {
@@ -30,7 +30,8 @@ namespace HalfbyteMedia.Craftopia.ModInstaller.Controlls.Disclaimer
         private void CheckBox1_CheckedChanged(object sender, EventArgs e)
         {
             var checkbox = (CheckBox)sender;
-            DisclaimerEvent?.Invoke(this, new DisclaimerEventArgs(checkbox.Checked));
+            IsValid = checkbox.Checked;
+            OnControlValid?.Invoke(this, BaseEventArgs.GetValidEventArgs(checkbox.Checked));
         }
     }
 

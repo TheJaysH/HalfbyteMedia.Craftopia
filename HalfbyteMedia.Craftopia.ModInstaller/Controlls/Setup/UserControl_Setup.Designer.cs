@@ -29,11 +29,14 @@ namespace HalfbyteMedia.Craftopia.ModInstaller.Controlls.Setup
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button_Browse = new System.Windows.Forms.Button();
             this.textBox_InstallDirectory = new System.Windows.Forms.TextBox();
+            this.errorProvider_InstallDirectory = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_InstallDirectory)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -42,7 +45,7 @@ namespace HalfbyteMedia.Craftopia.ModInstaller.Controlls.Setup
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
             this.label1.Padding = new System.Windows.Forms.Padding(0, 16, 0, 0);
-            this.label1.Size = new System.Drawing.Size(525, 95);
+            this.label1.Size = new System.Drawing.Size(1271, 95);
             this.label1.TabIndex = 0;
             this.label1.Text = "Setup will install the modded instance of Craftopia® in the following folder. To " +
     "install in a different folder, click Browse and select another folder. Click Nex" +
@@ -55,11 +58,11 @@ namespace HalfbyteMedia.Craftopia.ModInstaller.Controlls.Setup
             this.groupBox1.Controls.Add(this.button_Browse);
             this.groupBox1.Controls.Add(this.textBox_InstallDirectory);
             this.groupBox1.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.groupBox1.Location = new System.Drawing.Point(4, 167);
+            this.groupBox1.Location = new System.Drawing.Point(4, 464);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(16, 3, 16, 16);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(16, 3, 16, 16);
-            this.groupBox1.Size = new System.Drawing.Size(517, 93);
+            this.groupBox1.Size = new System.Drawing.Size(1263, 101);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Destination Folder";
@@ -68,7 +71,7 @@ namespace HalfbyteMedia.Craftopia.ModInstaller.Controlls.Setup
             // 
             this.button_Browse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button_Browse.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.button_Browse.Location = new System.Drawing.Point(407, 33);
+            this.button_Browse.Location = new System.Drawing.Point(1153, 33);
             this.button_Browse.Name = "button_Browse";
             this.button_Browse.Size = new System.Drawing.Size(91, 30);
             this.button_Browse.TabIndex = 1;
@@ -80,10 +83,17 @@ namespace HalfbyteMedia.Craftopia.ModInstaller.Controlls.Setup
             // 
             this.textBox_InstallDirectory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_InstallDirectory.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.textBox_InstallDirectory.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.FileSystemDirectories;
             this.textBox_InstallDirectory.Location = new System.Drawing.Point(19, 35);
             this.textBox_InstallDirectory.Name = "textBox_InstallDirectory";
-            this.textBox_InstallDirectory.Size = new System.Drawing.Size(382, 27);
+            this.textBox_InstallDirectory.Size = new System.Drawing.Size(1128, 27);
             this.textBox_InstallDirectory.TabIndex = 0;
+            // 
+            // errorProvider_InstallDirectory
+            // 
+            this.errorProvider_InstallDirectory.ContainerControl = this;
+            this.errorProvider_InstallDirectory.RightToLeft = true;
             // 
             // UserControl_Setup
             // 
@@ -95,10 +105,11 @@ namespace HalfbyteMedia.Craftopia.ModInstaller.Controlls.Setup
             this.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "UserControl_Setup";
-            this.Size = new System.Drawing.Size(525, 276);
+            this.Size = new System.Drawing.Size(1271, 581);
             this.Load += new System.EventHandler(this.UserControl_Setup_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_InstallDirectory)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -109,5 +120,6 @@ namespace HalfbyteMedia.Craftopia.ModInstaller.Controlls.Setup
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox textBox_InstallDirectory;
         private System.Windows.Forms.Button button_Browse;
+        private System.Windows.Forms.ErrorProvider errorProvider_InstallDirectory;
     }
 }

@@ -43,7 +43,7 @@ namespace HalfbyteMedia.Craftopia.ModInstaller.Controlls.ReqiredFiles
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Margin = new System.Windows.Forms.Padding(3, 0, 3, 16);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(638, 38);
+            this.label1.Size = new System.Drawing.Size(1246, 38);
             this.label1.TabIndex = 0;
             this.label1.Text = "The installer will now download and install required files. Click Begin to start " +
     "the process.";
@@ -55,15 +55,14 @@ namespace HalfbyteMedia.Craftopia.ModInstaller.Controlls.ReqiredFiles
             this.progressBar1.Enabled = false;
             this.progressBar1.Location = new System.Drawing.Point(4, 57);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(631, 23);
+            this.progressBar1.Size = new System.Drawing.Size(1239, 23);
             this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
             this.progressBar1.TabIndex = 2;
-            this.progressBar1.Visible = false;
             // 
             // button_Begin
             // 
             this.button_Begin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_Begin.Location = new System.Drawing.Point(532, 86);
+            this.button_Begin.Location = new System.Drawing.Point(1140, 86);
             this.button_Begin.Name = "button_Begin";
             this.button_Begin.Size = new System.Drawing.Size(103, 30);
             this.button_Begin.TabIndex = 3;
@@ -82,7 +81,7 @@ namespace HalfbyteMedia.Craftopia.ModInstaller.Controlls.ReqiredFiles
             this.listView_Files.HideSelection = false;
             this.listView_Files.Location = new System.Drawing.Point(4, 122);
             this.listView_Files.Name = "listView_Files";
-            this.listView_Files.Size = new System.Drawing.Size(631, 193);
+            this.listView_Files.Size = new System.Drawing.Size(1239, 539);
             this.listView_Files.TabIndex = 4;
             this.listView_Files.UseCompatibleStateImageBehavior = false;
             this.listView_Files.View = System.Windows.Forms.View.Details;
@@ -109,7 +108,7 @@ namespace HalfbyteMedia.Craftopia.ModInstaller.Controlls.ReqiredFiles
             this.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "UserControl_RequiredFiles";
-            this.Size = new System.Drawing.Size(638, 318);
+            this.Size = new System.Drawing.Size(1246, 664);
             this.Load += new System.EventHandler(this.UserControl_RequiredFiles_Load);
             this.ResumeLayout(false);
 

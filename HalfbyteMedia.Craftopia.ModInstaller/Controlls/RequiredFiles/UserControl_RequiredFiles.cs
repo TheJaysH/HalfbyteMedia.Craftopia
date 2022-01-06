@@ -6,6 +6,8 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
+using System.IO.Compression;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,26 +15,24 @@ using System.Windows.Forms;
 
 namespace HalfbyteMedia.Craftopia.ModInstaller.Controlls.ReqiredFiles
 {
-    public partial class UserControl_RequiredFiles : UserControl
+    public partial class UserControl_RequiredFiles : BaseControl, IControlValid<BaseEventArgs>
     {
 
-        public delegate void FileFinsihedEventHanler(object sender, EventArgs e);
-        public event FileFinsihedEventHanler FileFinishedEvent;
+       
+        public event ControlValidEventHandler<BaseEventArgs> OnControlValid;
 
         public List<FileMeta> Files { get; private set; } = new();
+
+        private int TasksCompleted { get; set; }
 
         public UserControl_RequiredFiles()
         {
             InitializeComponent();
             InitializeListBox();
 
-            FileFinishedEvent += UserControl_RequiredFiles_FileFinishedEvent;
+            progressBar1.Style = ProgressBarStyle.Blocks;
         }
 
-        private void UserControl_RequiredFiles_FileFinishedEvent(object sender, EventArgs e)
-        {
-            
-        }
 
         private void InitializeListBox()
         {
@@ -73,6 +73,27 @@ namespace HalfbyteMedia.Craftopia.ModInstaller.Controlls.ReqiredFiles
         {
         }
 
+        private void TaskCompleted(object sender, bool controlReady = true)
+        {
+            //TODO: This is kinda messy, and not thread safe.
+
+            TasksCompleted += 1;
+
+            if (TasksCompleted == Files.Count)
+            {
+                if (progressBar1.InvokeRequired)
+                    progressBar1.Invoke(new MethodInvoker(() =>
+                    {
+                        progressBar1.Style = ProgressBarStyle.Blocks;
+                    }));
+                else
+                    progressBar1.Style = ProgressBarStyle.Blocks;
+
+                IsValid = controlReady;
+                OnControlValid?.Invoke(sender, BaseEventArgs.GetValidEventArgs(controlReady));
+            }
+        }
+
         private void SetRowStatus(ListViewItem row, string text)
         {
             if (listView_Files.InvokeRequired)
@@ -91,28 +112,77 @@ namespace HalfbyteMedia.Craftopia.ModInstaller.Controlls.ReqiredFiles
 
             button.Enabled = false;
             progressBar1.Enabled = true;
+            progressBar1.Style = ProgressBarStyle.Marquee;
+
 
             foreach (ListViewItem row in rows)
             {
                 Task.Run(() =>
                 {
                     var meta = (FileMeta)row.Tag;
-                    meta.FileStatus = FileStatus.DOWNLOADING;
-
-                    SetRowStatus(row, meta.FileStatus.GetStatusString());                   
-
-                    WebUtils.DownloadFile(meta.Url, meta.FileName);
-
-                    if (meta.Installable)
+                    
+                    try
                     {
-                        meta.FileStatus = FileStatus.INSTALLING;
+
+                        
+
+                        //if (File.Exists(meta.FileName))
+                        //    File.Delete(meta.FileName);
+
+                        
+
+                        meta.FileStatus = FileStatus.DOWNLOADING;
+
                         SetRowStatus(row, meta.FileStatus.GetStatusString());
 
-                        Process.Start(meta.FileName).WaitForExit();
-                    }
+                        if (!meta.Exists())
+                        {
+                            WebUtils.DownloadFile(meta.Url, meta.FileName);
+                        }
+                        
 
-                    meta.FileStatus = FileStatus.FINISHED;
-                    SetRowStatus(row, meta.FileStatus.GetStatusString());
+                        if (meta.Installable)
+                        {
+                            if (meta.FileName.StartsWith("vc_redist") && RegistryUtils.IsVCInstalled())
+                            {
+                                meta.FileStatus = FileStatus.NOT_REQUIRED;
+                                SetRowStatus(row, meta.FileStatus.GetStatusString());
+                            }
+                            else
+                            {
+                                meta.FileStatus = FileStatus.INSTALLING;
+                                SetRowStatus(row, meta.FileStatus.GetStatusString());
+
+                                Process.Start(meta.FileName).WaitForExit();
+                                meta.FileStatus = FileStatus.FINISHED;
+                                SetRowStatus(row, meta.FileStatus.GetStatusString());
+                            }
+                        }
+
+                        if (meta.FileInfo.Extension.Equals(".zip"))
+                        {
+                            if (Directory.Exists(meta.Name))
+                                Directory.Delete(meta.Name, true);
+
+                            ZipFile.ExtractToDirectory(meta.FileInfo.FullName, Path.Combine(meta.FileInfo.DirectoryName, meta.Name));
+                            
+                            meta.FileStatus = FileStatus.FINISHED;
+                            SetRowStatus(row, meta.FileStatus.GetStatusString());
+                        }
+
+                       
+                        TaskCompleted(sender);
+
+                    }
+                    catch (Exception ex)
+                    {
+                        meta.FileStatus = FileStatus.ERROR;
+                        SetRowStatus(row, meta.FileStatus.GetStatusString());
+                        
+                        TaskCompleted(sender, false);
+                        
+                        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
 
                 });
 
