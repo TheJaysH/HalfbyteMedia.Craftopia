@@ -157,6 +157,11 @@ namespace HalfbyteMedia.Craftopia.ModInstaller.Controlls.ModCraftopia
                     return true;
                 }));
 
+                if (!filesDumped)
+                {
+                    throw new Exception("Failed to copy BepInEx files");
+                }
+
                 var bepInExInstalled = TaskInstallBepInEx.Run();
 
                 TaskReinstallCraftopia.InitializeAction(new Func<bool>(() =>
@@ -185,6 +190,13 @@ namespace HalfbyteMedia.Craftopia.ModInstaller.Controlls.ModCraftopia
 
                 var installedCraftopia = await TaskReinstallCraftopia.Run();
 
+                if (installedCraftopia)
+                {
+                    MessageBox.Show($"Craftopia has successfully been modded.\nTo install a mod places mod files in:\n\n{MainForm.Instance.InstallPath}\\BepInEx\\plugins\n\nPress OK to exit the application","Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Application.Exit();
+                }
+
+                throw new Exception("Failed to mod Craftopia");
             }
             catch (Exception)
             {

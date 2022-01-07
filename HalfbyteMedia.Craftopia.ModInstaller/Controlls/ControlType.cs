@@ -16,7 +16,7 @@ namespace HalfbyteMedia.Craftopia.ModInstaller.Controlls
         [Description("Gather Required Files")]
         RequiredFiles = 2,
 
-        [Description("Set Craftopia Permissions")]
+        [Description("Install Modded Craftopia")]
         ModCraftopia = 3,
     }
 
